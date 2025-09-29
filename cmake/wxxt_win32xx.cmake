@@ -6,10 +6,10 @@ set(package_url_base https://master.dl.sourceforge.net/project/win32-framework/W
 set(package_url ${package_url_base}/Version%20${package_version}/${package_name}.zip?viasf=1)
 
 # Download and unpack Win32++ if not already done
-if(NOT EXISTS ${XXT_3RD_DIR}/${package_name}.zip)
+if(NOT EXISTS ${WXXT_3RD_DIR}/${package_name}.zip)
   message(STATUS "Downloading ${package_name}...")
   file(
-    DOWNLOAD ${package_url} ${XXT_3RD_DIR}/${package_name}.zip
+    DOWNLOAD ${package_url} ${WXXT_3RD_DIR}/${package_name}.zip
     SHOW_PROGRESS
     STATUS download_status)
   if(NOT download_status EQUAL 0)
@@ -18,16 +18,16 @@ if(NOT EXISTS ${XXT_3RD_DIR}/${package_name}.zip)
 endif()
 
 # Unpack the zip file
-if(NOT EXISTS ${XXT_3RD_DIR}/${package_name})
-  file(MAKE_DIRECTORY ${XXT_3RD_DIR}/${package_name})
+if(NOT EXISTS ${WXXT_3RD_DIR}/${package_name})
+  file(MAKE_DIRECTORY ${WXXT_3RD_DIR}/${package_name})
   message(STATUS "Unpacking ${package_name}...")
   execute_process(
-    COMMAND ${CMAKE_COMMAND} -E tar xfz ${XXT_3RD_DIR}/${package_name}.zip
-    WORKING_DIRECTORY ${XXT_3RD_DIR}/${package_name}
+    COMMAND ${CMAKE_COMMAND} -E tar xfz ${WXXT_3RD_DIR}/${package_name}.zip
+    WORKING_DIRECTORY ${WXXT_3RD_DIR}/${package_name}
     RESULT_VARIABLE result)
   if(NOT result EQUAL 0)
     message(FATAL_ERROR "Error unpacking ${package_name}")
   endif()
 endif()
 
-include_directories(${XXT_3RD_DIR}/${package_name}/include)
+include_directories(${WXXT_3RD_DIR}/${package_name}/include)
