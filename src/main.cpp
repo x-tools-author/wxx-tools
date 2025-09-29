@@ -14,7 +14,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     Application app;
 
     MainWindow mw;
-    mw.Create();
+    mw.Create(0);
 
     return app.Run();
 }

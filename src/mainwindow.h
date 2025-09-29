@@ -8,12 +8,24 @@
  **************************************************************************************************/
 #pragma once
 
-#include <wxx_wincore.h>
+#include <wxx_appcore.h>
+#include <wxx_frame.h>
 
 class MainWindow : public CFrame
 {
 public:
     MainWindow();
     virtual ~MainWindow();
-    virtual void OnDestroy();
+    HWND Create(HWND parent = 0) override;
+
+protected:
+    BOOL OnCommand(WPARAM wparam, LPARAM lparam) override;
+    int OnCreate(CREATESTRUCT& cs) override;
+    void OnInitialUpdate() override;
+    LRESULT OnNotify(WPARAM wparam, LPARAM lparam) override;
+    void SetupToolBar() override;
+    LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam) override;
+
+private:
+    CWnd m_view;
 };

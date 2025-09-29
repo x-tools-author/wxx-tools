@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 cmake_policy(SET CMP0048 NEW)
 
 project(
-  xxTools
+  wxxTools
   VERSION 1.0
   LANGUAGES C CXX
   DESCRIPTION "A collection of useful debug tools based on Win32++")
