@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.25)
-
-set(tmp "A collection of useful debug tools based on Win32++")
 project(
   wxxTools
   VERSION 1.0
   LANGUAGES C CXX
-  DESCRIPTION ${tmp})
+  DESCRIPTION "A collection of useful debugging tools based on Win32++")
 if(MSVC)
   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+elseif(MINGW)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++ -static")
 endif()
 
 set(CMAKE_CXX_STANDARD 11)
