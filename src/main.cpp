@@ -9,7 +9,8 @@
 #include "application.h"
 #include "mainwindow.h"
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+#if WXXT_LOG_TO_CONSOLE
+int main(int argc, char* argv[])
 {
     Application app;
 
@@ -18,3 +19,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     return app.Run();
 }
+#else
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+    Application app;
+
+    Trace(_T("WinMain: Start of WinMain\n"));
+
+    MainWindow mw;
+    mw.Create(0);
+
+    return app.Run();
+}
+#endif
