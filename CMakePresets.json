@@ -1,0 +1,51 @@
+﻿{
+    "version": 10,
+    "configurePresets": [
+        {
+            "name": "mingw-ninja-debug",
+            "displayName": "MinGW Ninja Debug",
+            "description": "MinGW Debug configuration with Ninja generator",
+            "generator": "Ninja",
+            "binaryDir": "${workspaceFolder}/build/mingw-ninja-debug",
+            "environment": {
+                "PATH": "${workspaceFolder}/tools/mingw492_32/bin;${workspaceFolder}/tools/Ninja"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "${workspaceFolder}/tools/mingw492_32/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "${workspaceFolder}/tools/mingw492_32/bin/g++.exe",
+                "CMAKE_MAKE_PROGRAM": "${workspaceFolder}/tools/Ninja/ninja.exe"
+            }
+        },
+        {
+            "name": "mingw-ninja-release",
+            "displayName": "MinGW Ninja Release",
+            "description": "MinGW Release configuration with Ninja generator",
+            "generator": "Ninja",
+            "binaryDir": "${workspaceFolder}/build/mingw-ninja-release",
+            "environment": {
+                "PATH": "${workspaceFolder}/tools/mingw492_32/bin;${workspaceFolder}/tools/Ninja;"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_C_COMPILER": "${workspaceFolder}/tools/mingw492_32/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "${workspaceFolder}/tools/mingw492_32/bin/g++.exe",
+                "CMAKE_MAKE_PROGRAM": "${workspaceFolder}/tools/Ninja/ninja.exe",
+                "CMAKE_PREFIX_PATH": "C:/Qt/6.5.0/mingw_64",
+                "Qt6_DIR": "C:/Qt/6.5.0/mingw_64/lib/cmake/Qt6"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "mingw-ninja-debug-build",
+            "displayName": "MinGW Ninja Debug Build",
+            "configurePreset": "mingw-ninja-debug"
+        },
+        {
+            "name": "mingw-ninja-release-build",
+            "displayName": "MinGW Ninja Release Build",
+            "configurePreset": "mingw-ninja-release"
+        }
+    ]
+}
