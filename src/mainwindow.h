@@ -10,7 +10,7 @@
 
 #include <wxx_wincore.h>
 
-class MainWindow : public CWnd
+class MainWindow : public CFrame
 {
 public:
     MainWindow();

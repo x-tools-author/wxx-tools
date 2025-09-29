@@ -1,6 +1,6 @@
 ﻿# https://master.dl.sourceforge.net/project/win32-framework/Win32%2B%2B/Version%209.6.1/Win32xx961.zip?viasf=1
 set(package_version 9.6.1)
-set(package_version_no_dots 961)
+string(REPLACE "." "" package_version_no_dots ${package_version})
 set(package_name Win32xx${package_version_no_dots})
 set(package_url_base https://master.dl.sourceforge.net/project/win32-framework/Win32%2B%2B)
 set(package_url ${package_url_base}/Version%20${package_version}/${package_name}.zip?viasf=1)
